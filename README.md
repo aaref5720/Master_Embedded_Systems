@@ -1,4 +1,4 @@
 # Master_Embedded_Systems
-Embedded System Online Diploma with Eng / Keroles Shenouda
+Embedded System Online Diploma with Eng / Keroles Shenouda.
 
-Abdelrahman Aref
+Abdelrahman Aref.
