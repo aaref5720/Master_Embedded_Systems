@@ -19,18 +19,16 @@ struct Semployee
 };
 
 int main(void) {
-	struct Semployee employee1 = {"Abdelrahman" , 1211} ,
-	employee2 = {"Aref" , 2711} , employee3 = {"Nadi" , 5720};
+	struct Semployee employee1 = {"Abdelrahman" , 1211} ;
 
 	//pointer to structure
-	struct Semployee* ptr[] = {&employee1 , &employee2 , &employee3};
-	printf("Employee Name : %s\n",ptr[0]->name);
-	printf("Employee ID : %d\n",ptr[0]->ID);
-
+	struct Semployee* ptr = &employee1;
+	printf("Employee Name : %s\n",ptr->name);
+	printf("Employee ID : %d\n",ptr->ID);
 	printf("\n");
 
-	//]pointer to Array to structure
-	struct Semployee* (*ptrArr)[3] = &ptr;
+	//pointer to Array to pointer to structure
+	struct Semployee* (*ptrArr)[2] = &ptr;
 	printf("Employee Name : %s\n",(*(*ptrArr))->name);
 	printf("Employee ID : %d\n",(*(*ptrArr))->ID);
 
