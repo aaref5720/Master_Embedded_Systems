@@ -72,15 +72,10 @@ void main()
 
 
 	printf("\nTest Report:\n");
-	printf("Total Cases  : %2d\n", pass + fail);
-	printf("Total Passed : %2d\n", pass);
+	printf("Total Cases  : %d\n", pass + fail);
+	printf("Total Passed : %d\n", pass);
 	printf("Total Failed : %d\n", fail);
-
-
-
-
-
-
+	
 }
 
 //LIFO_Status LIFO_init(&LIFO_test , test_Buffer , LIFO_buf_length);

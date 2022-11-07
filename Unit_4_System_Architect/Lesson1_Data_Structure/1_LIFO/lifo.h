@@ -61,8 +61,4 @@ LIFO_Status LIFO_is_empty(LIFO_Buffer_t *lifo_buf);
 //Erase all data items inside the LIFO (Reset a LIFO buffer)
 LIFO_Status LIFO_make_empty(LIFO_Buffer_t *lifo_buf);
 
-
-
-
-
 #endif
