@@ -55,7 +55,7 @@ void Reset_Handler()
 	unsigned int BSS_Size = (unsigned char*) &_E_bss - (unsigned char*) &_S_bss ;
 	P_Dst = (unsigned char*) &_S_bss;
 
-	for (i = 0 ; i < DATA_Size ; ++i)
+	for (i = 0 ; i < BSS_Size ; ++i)
 	{
 		*((unsigned char*) P_Dst++) = (unsigned char)0;
 	}
