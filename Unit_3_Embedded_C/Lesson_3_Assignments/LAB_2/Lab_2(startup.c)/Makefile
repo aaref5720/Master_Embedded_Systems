@@ -1,16 +1,15 @@
 #@ Copyright (C) 2022 Abdelrahman Aref.
 
-
 CC			 =arm-none-eabi-
 CFLAGS 		 =-mcpu=cortex-m3 -gdwarf-2 -mthumb
 INCS		 =-I .
+LIBS		 =
 SRC			 =$(wildcard *.c)
 OBJ			 =$(SRC:.c=.o)
 ASM    		 =$(wildcard *.s)
 ASMOBJ 		 =$(ASM:.s=.o)
 LINKER 		 =$(wildcard *.ld)
 Project_Name =ledToggleLabAdvanced
-
 
 
 ALL : $(Project_Name).bin
@@ -29,8 +28,8 @@ $(Project_Name).bin : $(Project_Name).elf
 	$(CC)objcopy.exe -O binary $< $@
 
 clean_all:
-	rm *.o *elf *.bin
-	@echo "Everything is Cleaned"
+	rm *.o *elf *.bin *.map
+	@echo "Everything is Cleaned..."
 
 clean:
-	rm *.elf *.bin
+	rm *.elf *.bin *.map
