@@ -4,6 +4,7 @@
 CC			 =arm-none-eabi-
 CFLAGS 		 =-mcpu=cortex-m4 -gdwarf-2 -mthumb
 INCS		 =-I .
+LIBS		 =
 SRC			 =$(wildcard *.c)
 OBJ			 =$(SRC:.c=.o)
 ASM    		 =$(wildcard *.s)
@@ -34,4 +35,4 @@ clean_all:
 	@echo "Everything is Cleaned"
 
 clean:
-	rm *.elf *.bin
+	rm *.elf *.bin *.map
