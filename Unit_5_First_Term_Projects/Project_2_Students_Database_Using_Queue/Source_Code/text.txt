@@ -1,0 +1,4 @@
+1 Abdelrahman Aref 3.9 1 2 3 4 5
+2 Ahmed Salah 3.67 8 7 6 9 5
+2 Amr Mousa 3.33 3 5 4 9 7
+4 Omar Samir 2.2 1 2 6 7 3
