@@ -1,0 +1,10 @@
+GPIO.c:17:6:ConfigurationPin	24	static
+GPIO.c:131:6:MCAL_GPIO_Init	24	static
+GPIO.c:193:6:MCAL_GPIO_DeInit	16	static
+GPIO.c:256:10:MCAL_GPIO_ReadPin	16	static
+GPIO.c:311:11:MCAL_GPIO_ReadPort	16	static
+GPIO.c:334:6:MCAL_GPIO_WritePin	16	static
+GPIO.c:402:6:MCAL_GPIO_WritePort	16	static
+GPIO.c:422:6:MCAL_GPIO_TogglePin	16	static
+GPIO.c:439:6:MCAL_GPIO_TogglePORT	16	static
+GPIO.c:462:10:MCAL_GPIO_LockPin	16	static
