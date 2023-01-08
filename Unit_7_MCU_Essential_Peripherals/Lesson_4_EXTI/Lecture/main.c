@@ -23,7 +23,7 @@
 
 #include "STM32F103x6.h"
 #include "GPIO.h"
-#include "EXIT.h"
+#include "EXTI.h"
 #include "lcd.h"
 
 uint8_t IRQ_Flag = 0;
