@@ -2,78 +2,47 @@
 
 This repository contains my progress for the Diploma in Embedded Systems.
 
-## Table of Contents
+## Contents
 
-- [First Term](#first-term)
-- [Second Term](#second-term)
-- [Third Term](#third-term)
-- [Progress](#progress)
-- [My Progress Profile](#my-progress-profile)
+### First Term ![image](https://progress-bar.dev/100/?title=Done)
 
-## First Term
+- [Unit 1: Diploma Prerequisites](https://github.com/aaref5720/Master_Embedded_Systems) ![image](https://progress-bar.dev/100/?title=No_Assignments&color=bababa)
+- [Unit 2: C Programming](Unit_2_C_Programming) ![image](https://progress-bar.dev/100/)
+- [Unit 3: Embedded C](Unit_3_Embedded_C) ![image](https://progress-bar.dev/100/)
+- [Unit 4: System Architect](Unit_4_System_Architecture) ![image](https://progress-bar.dev/100/)
+- [Unit 5: First Term Projects](Unit_5_First_Term_Projects) ![image](https://progress-bar.dev/100/)
 
-![Diploma Prerequisites] ![image](https://progress-bar.dev/100/)
-### Unit 1: Diploma Prerequisites
+---
 
-![C Programming] ![image](https://progress-bar.dev/100/)
-### Unit 2: C Programming
+### Second Term ![image](https://progress-bar.dev/33/?title=Done&color=ff00ff)
 
-![Embedded C] ![image](https://progress-bar.dev/100/)
-### Unit 3: Embedded C
+- [Unit 6: MCU Fundamentals](Unit_6_MCU_Fundamentals) ![image](https://progress-bar.dev/100/)
+- [Unit 7: MCU Essential Peripherals](Unit_7_MCU_Essential_Peripherals) ![image](https://progress-bar.dev/100/)
+- [Unit 8: MCU Interfacing](Unit_8_MCU_Interfacing) ![image](https://progress-bar.dev/35/)
+- [Unit 9: MCU Timers/ADC](Unit_9_MCU_Timer_%26_ADC) ![image](https://progress-bar.dev/0/)
+- [Unit 10: SW Testing/Validation](Unit_10_SW_Testing_Validation) ![image](https://progress-bar.dev/0/)
+- [Unit 11: Apply on Embedded Systems Jobs](https://github.com/aaref5720/Master_Embedded_Systems) ![image](https://progress-bar.dev/0/?title=Exams&color=bababa)
 
-![System Architect](https://via.placeholder.com/350x150)
-### Unit 4: System Architect
+---
 
-![First Term Projects] ![image](https://progress-bar.dev/100/)
-### Unit 5: First Term Projects
+### Third Term ![image](https://progress-bar.dev/0/?title=Start_Soon&color=ff0000)
 
-## Second Term
+- [Unit 12: Advanced Topics](https://github.com/aaref5720/Master_Embedded_Systems) ![image](https://progress-bar.dev/0/)
+- [Unit 13: Mastering CAN Protocol](https://github.com/aaref5720/Master_Embedded_Systems) ![image](https://progress-bar.dev/0/)
+- [Unit 14: Mastering ARM CortexM3/4](https://github.com/aaref5720/Master_Embedded_Systems) ![image](https://progress-bar.dev/0/)
+- [Unit 15: Create Your Own RTOS](https://github.com/aaref5720/Master_Embedded_Systems) ![image](https://progress-bar.dev/0/)
+- [Unit 16: Design Pattern](https://github.com/aaref5720/Master_Embedded_Systems) ![image](https://progress-bar.dev/0/)
+- [Unit 17: Modern C++ & OOP](https://github.com/aaref5720/Master_Embedded_Systems) ![image](https://progress-bar.dev/0/)
+- [Unit 16: Introduction to Embedded Linux/AUTOSAR](https://github.com/aaref5720/Master_Embedded_Systems) ![image](https://progress-bar.dev/0/)
 
-![MCU Fundamentals] ![image](https://progress-bar.dev/100/)
-### Unit 6: MCU Fundamentals
+---
 
-![MCU Essential Peripherals] ![image](https://progress-bar.dev/100/)
-### Unit 7: MCU Essential Peripherals
+## Overall progress ![image](https://progress-bar.dev/2/?scale=3&title=Terms&suffix=&width=230&color=aa00ff)
 
-![MCU Interfacing] ![image](https://progress-bar.dev/35/)
-### Unit 8: MCU Interfacing
+[![image](https://github.com/Mina-Karam/Master_Embedded_Systems/blob/master/Certification.png)](https://www.learn-in-depth.com/online-diploma/minakaram.me%40gmail.com)
 
-![MCU Timers/ADC] ![image](https://progress-bar.dev/soon/)
-### Unit 9: MCU Timers/ADC
+---
 
-![SW Testing/Validation] ![image](https://progress-bar.dev/soon/)
-### Unit 10: SW Testing/Validation
+## My Progress Profile: [Click Here](https://www.learn-in-depth.com/online-diploma/abdo01445%40gmail.com)
 
-![Apply on Embedded Systems Jobs] ![image](https://progress-bar.dev/soon/)
-### Unit 11: Apply on Embedded Systems Jobs
-
-## Third Term
-
-![Advanced Topics] ![image](https://progress-bar.dev/soon/)
-### Unit 12: Advanced Topics
-
-![Mastering CAN Protocol] ![image](https://progress-bar.dev/soon/)
-### Unit 13: Mastering CAN Protocol
-
-![Mastering ARM CortexM3/4] ![image](https://progress-bar.dev/soon/)
-### Unit 15: Mastering ARM CortexM3/4
-
-![Create Your Own RTOS] ![image](https://progress-bar.dev/soon/)
-### Unit 16: Create Your Own RTOS
-
-![Design Pattern] ![image](https://progress-bar.dev/soon/)
-### Unit 17: Design Pattern
-
-![Modern C++ & OOP] ![image](https://progress-bar.dev/soon/)
-### Unit 18: Modern C++ & OOP
-
-![Introduction to Embedded Linux/AUTOSAR] ![image](https://progress-bar.dev/soon/)
-### Unit 19: Introduction to Embedded Linux/AUTOSAR
-
-## Progress
-
-![Progress](https://img.shields.io/badge/Progress-35%25-blue)
-
-## My Progress Profile
-
-[https://www.learn-in-depth.com/online-diploma/abdo01445%40gmail.com](//www.learn-in-depth.com/online-diploma/abdo01445%40gmail.com)
+---
