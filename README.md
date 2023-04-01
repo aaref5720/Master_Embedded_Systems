@@ -12,62 +12,62 @@ This repository contains my progress for the Diploma in Embedded Systems.
 
 ## First Term
 
-![Diploma Prerequisites](https://via.placeholder.com/350x150)
+![Diploma Prerequisites] ![image](https://progress-bar.dev/100/)
 ### Unit 1: Diploma Prerequisites
 
-![C Programming](https://via.placeholder.com/350x150)
+![C Programming] ![image](https://progress-bar.dev/100/)
 ### Unit 2: C Programming
 
-![Embedded C](https://via.placeholder.com/350x150)
+![Embedded C] ![image](https://progress-bar.dev/100/)
 ### Unit 3: Embedded C
 
 ![System Architect](https://via.placeholder.com/350x150)
 ### Unit 4: System Architect
 
-![First Term Projects](https://via.placeholder.com/350x150)
+![First Term Projects] ![image](https://progress-bar.dev/100/)
 ### Unit 5: First Term Projects
 
 ## Second Term
 
-![MCU Fundamentals](https://via.placeholder.com/350x150)
+![MCU Fundamentals] ![image](https://progress-bar.dev/100/)
 ### Unit 6: MCU Fundamentals
 
-![MCU Essential Peripherals](https://via.placeholder.com/350x150)
+![MCU Essential Peripherals] ![image](https://progress-bar.dev/100/)
 ### Unit 7: MCU Essential Peripherals
 
-![MCU Interfacing](https://via.placeholder.com/350x150)
+![MCU Interfacing] ![image](https://progress-bar.dev/35/)
 ### Unit 8: MCU Interfacing
 
-![MCU Timers/ADC](https://via.placeholder.com/350x150)
+![MCU Timers/ADC] ![image](https://progress-bar.dev/soon/)
 ### Unit 9: MCU Timers/ADC
 
-![SW Testing/Validation](https://via.placeholder.com/350x150)
+![SW Testing/Validation] ![image](https://progress-bar.dev/soon/)
 ### Unit 10: SW Testing/Validation
 
-![Apply on Embedded Systems Jobs](https://via.placeholder.com/350x150)
+![Apply on Embedded Systems Jobs] ![image](https://progress-bar.dev/soon/)
 ### Unit 11: Apply on Embedded Systems Jobs
 
 ## Third Term
 
-![Advanced Topics](https://via.placeholder.com/350x150)
+![Advanced Topics] ![image](https://progress-bar.dev/soon/)
 ### Unit 12: Advanced Topics
 
-![Mastering CAN Protocol](https://via.placeholder.com/350x150)
+![Mastering CAN Protocol] ![image](https://progress-bar.dev/soon/)
 ### Unit 13: Mastering CAN Protocol
 
-![Mastering ARM CortexM3/4](https://via.placeholder.com/350x150)
+![Mastering ARM CortexM3/4] ![image](https://progress-bar.dev/soon/)
 ### Unit 15: Mastering ARM CortexM3/4
 
-![Create Your Own RTOS](https://via.placeholder.com/350x150)
+![Create Your Own RTOS] ![image](https://progress-bar.dev/soon/)
 ### Unit 16: Create Your Own RTOS
 
-![Design Pattern](https://via.placeholder.com/350x150)
+![Design Pattern] ![image](https://progress-bar.dev/soon/)
 ### Unit 17: Design Pattern
 
-![Modern C++ & OOP](https://via.placeholder.com/350x150)
+![Modern C++ & OOP] ![image](https://progress-bar.dev/soon/)
 ### Unit 18: Modern C++ & OOP
 
-![Introduction to Embedded Linux/AUTOSAR](https://via.placeholder.com/350x150)
+![Introduction to Embedded Linux/AUTOSAR] ![image](https://progress-bar.dev/soon/)
 ### Unit 19: Introduction to Embedded Linux/AUTOSAR
 
 ## Progress
