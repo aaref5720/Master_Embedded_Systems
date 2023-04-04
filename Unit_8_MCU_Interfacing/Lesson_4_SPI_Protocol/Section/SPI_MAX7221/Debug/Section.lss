@@ -1,0 +1,937 @@
+
+Section.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         0000055e  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00800060  00800060  000005d2  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000002  00800060  00800060  000005d2  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  000005d2  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000604  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 00000128  00000000  00000000  00000640  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   000011b8  00000000  00000000  00000768  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 0000090d  00000000  00000000  00001920  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   00000c38  00000000  00000000  0000222d  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  00000264  00000000  00000000  00002e68  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    000005bf  00000000  00000000  000030cc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    00000cfb  00000000  00000000  0000368b  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 000000e8  00000000  00000000  00004386  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
+   4:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+   8:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+   c:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  10:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  14:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  18:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  1c:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  20:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  24:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  28:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  2c:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  30:	0c 94 83 02 	jmp	0x506	; 0x506 <__vector_12>
+  34:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  38:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  3c:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  40:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  44:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  48:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  4c:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  50:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+
+00000054 <__ctors_end>:
+  54:	11 24       	eor	r1, r1
+  56:	1f be       	out	0x3f, r1	; 63
+  58:	cf e5       	ldi	r28, 0x5F	; 95
+  5a:	d8 e0       	ldi	r29, 0x08	; 8
+  5c:	de bf       	out	0x3e, r29	; 62
+  5e:	cd bf       	out	0x3d, r28	; 61
+
+00000060 <__do_clear_bss>:
+  60:	20 e0       	ldi	r18, 0x00	; 0
+  62:	a0 e6       	ldi	r26, 0x60	; 96
+  64:	b0 e0       	ldi	r27, 0x00	; 0
+  66:	01 c0       	rjmp	.+2      	; 0x6a <.do_clear_bss_start>
+
+00000068 <.do_clear_bss_loop>:
+  68:	1d 92       	st	X+, r1
+
+0000006a <.do_clear_bss_start>:
+  6a:	a2 36       	cpi	r26, 0x62	; 98
+  6c:	b2 07       	cpc	r27, r18
+  6e:	e1 f7       	brne	.-8      	; 0x68 <.do_clear_bss_loop>
+  70:	0e 94 f4 01 	call	0x3e8	; 0x3e8 <main>
+  74:	0c 94 ad 02 	jmp	0x55a	; 0x55a <_exit>
+
+00000078 <__bad_interrupt>:
+  78:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+0000007c <pinMode>:
+ * Retval            -None.
+ *
+ */
+void pinMode(PORTS PORT , PINS PIN , uint8_t mode)
+{
+	switch(PORT)
+  7c:	81 30       	cpi	r24, 0x01	; 1
+  7e:	a9 f1       	breq	.+106    	; 0xea <pinMode+0x6e>
+  80:	38 f0       	brcs	.+14     	; 0x90 <pinMode+0x14>
+  82:	82 30       	cpi	r24, 0x02	; 2
+  84:	09 f4       	brne	.+2      	; 0x88 <pinMode+0xc>
+  86:	5e c0       	rjmp	.+188    	; 0x144 <pinMode+0xc8>
+  88:	83 30       	cpi	r24, 0x03	; 3
+  8a:	09 f4       	brne	.+2      	; 0x8e <pinMode+0x12>
+  8c:	88 c0       	rjmp	.+272    	; 0x19e <pinMode+0x122>
+  8e:	08 95       	ret
+	{
+		case PORT_A :
+		switch(mode)
+  90:	41 30       	cpi	r20, 0x01	; 1
+  92:	81 f0       	breq	.+32     	; 0xb4 <pinMode+0x38>
+  94:	18 f0       	brcs	.+6      	; 0x9c <pinMode+0x20>
+  96:	43 30       	cpi	r20, 0x03	; 3
+  98:	c1 f0       	breq	.+48     	; 0xca <pinMode+0x4e>
+  9a:	08 95       	ret
+		{
+			case INPUT:
+			ReSet_Bit(DDRA,PIN);
+  9c:	81 e0       	ldi	r24, 0x01	; 1
+  9e:	90 e0       	ldi	r25, 0x00	; 0
+  a0:	02 c0       	rjmp	.+4      	; 0xa6 <pinMode+0x2a>
+  a2:	88 0f       	add	r24, r24
+  a4:	99 1f       	adc	r25, r25
+  a6:	6a 95       	dec	r22
+  a8:	e2 f7       	brpl	.-8      	; 0xa2 <pinMode+0x26>
+  aa:	80 95       	com	r24
+  ac:	9a b3       	in	r25, 0x1a	; 26
+  ae:	89 23       	and	r24, r25
+  b0:	8a bb       	out	0x1a, r24	; 26
+			break;
+  b2:	08 95       	ret
+			
+			case OUTPUT:
+			Set_Bit(DDRA,PIN);
+  b4:	81 e0       	ldi	r24, 0x01	; 1
+  b6:	90 e0       	ldi	r25, 0x00	; 0
+  b8:	02 c0       	rjmp	.+4      	; 0xbe <pinMode+0x42>
+  ba:	88 0f       	add	r24, r24
+  bc:	99 1f       	adc	r25, r25
+  be:	6a 95       	dec	r22
+  c0:	e2 f7       	brpl	.-8      	; 0xba <pinMode+0x3e>
+  c2:	9a b3       	in	r25, 0x1a	; 26
+  c4:	89 2b       	or	r24, r25
+  c6:	8a bb       	out	0x1a, r24	; 26
+			break;
+  c8:	08 95       	ret
+			
+			case INPUT_PULLUP:
+			ReSet_Bit(DDRA,PIN);
+  ca:	81 e0       	ldi	r24, 0x01	; 1
+  cc:	90 e0       	ldi	r25, 0x00	; 0
+  ce:	02 c0       	rjmp	.+4      	; 0xd4 <pinMode+0x58>
+  d0:	88 0f       	add	r24, r24
+  d2:	99 1f       	adc	r25, r25
+  d4:	6a 95       	dec	r22
+  d6:	e2 f7       	brpl	.-8      	; 0xd0 <pinMode+0x54>
+  d8:	98 2f       	mov	r25, r24
+  da:	90 95       	com	r25
+  dc:	2a b3       	in	r18, 0x1a	; 26
+  de:	92 23       	and	r25, r18
+  e0:	9a bb       	out	0x1a, r25	; 26
+			Set_Bit(PORTA,PIN);
+  e2:	9b b3       	in	r25, 0x1b	; 27
+  e4:	89 2b       	or	r24, r25
+  e6:	8b bb       	out	0x1b, r24	; 27
+			break;
+  e8:	08 95       	ret
+			
+		}
+		break;
+		
+		case PORT_B :
+		switch(mode)
+  ea:	41 30       	cpi	r20, 0x01	; 1
+  ec:	81 f0       	breq	.+32     	; 0x10e <pinMode+0x92>
+  ee:	18 f0       	brcs	.+6      	; 0xf6 <pinMode+0x7a>
+  f0:	43 30       	cpi	r20, 0x03	; 3
+  f2:	c1 f0       	breq	.+48     	; 0x124 <pinMode+0xa8>
+  f4:	08 95       	ret
+		{
+			case INPUT:
+			ReSet_Bit(DDRB,PIN);
+  f6:	81 e0       	ldi	r24, 0x01	; 1
+  f8:	90 e0       	ldi	r25, 0x00	; 0
+  fa:	02 c0       	rjmp	.+4      	; 0x100 <pinMode+0x84>
+  fc:	88 0f       	add	r24, r24
+  fe:	99 1f       	adc	r25, r25
+ 100:	6a 95       	dec	r22
+ 102:	e2 f7       	brpl	.-8      	; 0xfc <pinMode+0x80>
+ 104:	80 95       	com	r24
+ 106:	97 b3       	in	r25, 0x17	; 23
+ 108:	89 23       	and	r24, r25
+ 10a:	87 bb       	out	0x17, r24	; 23
+			break;
+ 10c:	08 95       	ret
+			
+			case OUTPUT:
+			Set_Bit(DDRB,PIN);
+ 10e:	81 e0       	ldi	r24, 0x01	; 1
+ 110:	90 e0       	ldi	r25, 0x00	; 0
+ 112:	02 c0       	rjmp	.+4      	; 0x118 <pinMode+0x9c>
+ 114:	88 0f       	add	r24, r24
+ 116:	99 1f       	adc	r25, r25
+ 118:	6a 95       	dec	r22
+ 11a:	e2 f7       	brpl	.-8      	; 0x114 <pinMode+0x98>
+ 11c:	97 b3       	in	r25, 0x17	; 23
+ 11e:	89 2b       	or	r24, r25
+ 120:	87 bb       	out	0x17, r24	; 23
+			break;
+ 122:	08 95       	ret
+			
+			case INPUT_PULLUP:
+			ReSet_Bit(DDRB,PIN);
+ 124:	81 e0       	ldi	r24, 0x01	; 1
+ 126:	90 e0       	ldi	r25, 0x00	; 0
+ 128:	02 c0       	rjmp	.+4      	; 0x12e <pinMode+0xb2>
+ 12a:	88 0f       	add	r24, r24
+ 12c:	99 1f       	adc	r25, r25
+ 12e:	6a 95       	dec	r22
+ 130:	e2 f7       	brpl	.-8      	; 0x12a <pinMode+0xae>
+ 132:	98 2f       	mov	r25, r24
+ 134:	90 95       	com	r25
+ 136:	27 b3       	in	r18, 0x17	; 23
+ 138:	92 23       	and	r25, r18
+ 13a:	97 bb       	out	0x17, r25	; 23
+			Set_Bit(PORTB,PIN);
+ 13c:	98 b3       	in	r25, 0x18	; 24
+ 13e:	89 2b       	or	r24, r25
+ 140:	88 bb       	out	0x18, r24	; 24
+			break;
+ 142:	08 95       	ret
+		}
+		break;
+		
+		
+		case PORT_C :
+		switch(mode)
+ 144:	41 30       	cpi	r20, 0x01	; 1
+ 146:	81 f0       	breq	.+32     	; 0x168 <pinMode+0xec>
+ 148:	18 f0       	brcs	.+6      	; 0x150 <pinMode+0xd4>
+ 14a:	43 30       	cpi	r20, 0x03	; 3
+ 14c:	c1 f0       	breq	.+48     	; 0x17e <pinMode+0x102>
+ 14e:	08 95       	ret
+		{
+			case INPUT:
+			ReSet_Bit(DDRC,PIN);
+ 150:	81 e0       	ldi	r24, 0x01	; 1
+ 152:	90 e0       	ldi	r25, 0x00	; 0
+ 154:	02 c0       	rjmp	.+4      	; 0x15a <pinMode+0xde>
+ 156:	88 0f       	add	r24, r24
+ 158:	99 1f       	adc	r25, r25
+ 15a:	6a 95       	dec	r22
+ 15c:	e2 f7       	brpl	.-8      	; 0x156 <pinMode+0xda>
+ 15e:	80 95       	com	r24
+ 160:	94 b3       	in	r25, 0x14	; 20
+ 162:	89 23       	and	r24, r25
+ 164:	84 bb       	out	0x14, r24	; 20
+			break;
+ 166:	08 95       	ret
+			
+			case OUTPUT:
+			Set_Bit(DDRC,PIN);
+ 168:	81 e0       	ldi	r24, 0x01	; 1
+ 16a:	90 e0       	ldi	r25, 0x00	; 0
+ 16c:	02 c0       	rjmp	.+4      	; 0x172 <pinMode+0xf6>
+ 16e:	88 0f       	add	r24, r24
+ 170:	99 1f       	adc	r25, r25
+ 172:	6a 95       	dec	r22
+ 174:	e2 f7       	brpl	.-8      	; 0x16e <pinMode+0xf2>
+ 176:	94 b3       	in	r25, 0x14	; 20
+ 178:	89 2b       	or	r24, r25
+ 17a:	84 bb       	out	0x14, r24	; 20
+			break;
+ 17c:	08 95       	ret
+			
+			case INPUT_PULLUP:
+			ReSet_Bit(DDRC,PIN);
+ 17e:	81 e0       	ldi	r24, 0x01	; 1
+ 180:	90 e0       	ldi	r25, 0x00	; 0
+ 182:	02 c0       	rjmp	.+4      	; 0x188 <pinMode+0x10c>
+ 184:	88 0f       	add	r24, r24
+ 186:	99 1f       	adc	r25, r25
+ 188:	6a 95       	dec	r22
+ 18a:	e2 f7       	brpl	.-8      	; 0x184 <pinMode+0x108>
+ 18c:	98 2f       	mov	r25, r24
+ 18e:	90 95       	com	r25
+ 190:	24 b3       	in	r18, 0x14	; 20
+ 192:	92 23       	and	r25, r18
+ 194:	94 bb       	out	0x14, r25	; 20
+			Set_Bit(PORTC,PIN);
+ 196:	95 b3       	in	r25, 0x15	; 21
+ 198:	89 2b       	or	r24, r25
+ 19a:	85 bb       	out	0x15, r24	; 21
+			break;
+ 19c:	08 95       	ret
+			
+		}
+		break;
+		
+		case PORT_D :
+		switch(mode)
+ 19e:	41 30       	cpi	r20, 0x01	; 1
+ 1a0:	81 f0       	breq	.+32     	; 0x1c2 <pinMode+0x146>
+ 1a2:	18 f0       	brcs	.+6      	; 0x1aa <pinMode+0x12e>
+ 1a4:	43 30       	cpi	r20, 0x03	; 3
+ 1a6:	c1 f0       	breq	.+48     	; 0x1d8 <pinMode+0x15c>
+ 1a8:	08 95       	ret
+		{
+			case INPUT:
+			ReSet_Bit(DDRD,PIN);
+ 1aa:	81 e0       	ldi	r24, 0x01	; 1
+ 1ac:	90 e0       	ldi	r25, 0x00	; 0
+ 1ae:	02 c0       	rjmp	.+4      	; 0x1b4 <pinMode+0x138>
+ 1b0:	88 0f       	add	r24, r24
+ 1b2:	99 1f       	adc	r25, r25
+ 1b4:	6a 95       	dec	r22
+ 1b6:	e2 f7       	brpl	.-8      	; 0x1b0 <pinMode+0x134>
+ 1b8:	80 95       	com	r24
+ 1ba:	91 b3       	in	r25, 0x11	; 17
+ 1bc:	89 23       	and	r24, r25
+ 1be:	81 bb       	out	0x11, r24	; 17
+			break;
+ 1c0:	08 95       	ret
+			
+			case OUTPUT:
+			Set_Bit(DDRD,PIN);
+ 1c2:	81 e0       	ldi	r24, 0x01	; 1
+ 1c4:	90 e0       	ldi	r25, 0x00	; 0
+ 1c6:	02 c0       	rjmp	.+4      	; 0x1cc <pinMode+0x150>
+ 1c8:	88 0f       	add	r24, r24
+ 1ca:	99 1f       	adc	r25, r25
+ 1cc:	6a 95       	dec	r22
+ 1ce:	e2 f7       	brpl	.-8      	; 0x1c8 <pinMode+0x14c>
+ 1d0:	91 b3       	in	r25, 0x11	; 17
+ 1d2:	89 2b       	or	r24, r25
+ 1d4:	81 bb       	out	0x11, r24	; 17
+			break;
+ 1d6:	08 95       	ret
+			
+			case INPUT_PULLUP:
+			ReSet_Bit(DDRD,PIN);
+ 1d8:	81 e0       	ldi	r24, 0x01	; 1
+ 1da:	90 e0       	ldi	r25, 0x00	; 0
+ 1dc:	02 c0       	rjmp	.+4      	; 0x1e2 <pinMode+0x166>
+ 1de:	88 0f       	add	r24, r24
+ 1e0:	99 1f       	adc	r25, r25
+ 1e2:	6a 95       	dec	r22
+ 1e4:	e2 f7       	brpl	.-8      	; 0x1de <pinMode+0x162>
+ 1e6:	98 2f       	mov	r25, r24
+ 1e8:	90 95       	com	r25
+ 1ea:	21 b3       	in	r18, 0x11	; 17
+ 1ec:	92 23       	and	r25, r18
+ 1ee:	91 bb       	out	0x11, r25	; 17
+			Set_Bit(PORTD,PIN);
+ 1f0:	92 b3       	in	r25, 0x12	; 18
+ 1f2:	89 2b       	or	r24, r25
+ 1f4:	82 bb       	out	0x12, r24	; 18
+ 1f6:	08 95       	ret
+
+000001f8 <digitalWrite>:
+ *
+ * Note              -None.
+ */
+void digitalWrite(PORTS PORT , PINS PIN , uint8_t value)
+{
+	switch(PORT)
+ 1f8:	81 30       	cpi	r24, 0x01	; 1
+ 1fa:	19 f1       	breq	.+70     	; 0x242 <digitalWrite+0x4a>
+ 1fc:	30 f0       	brcs	.+12     	; 0x20a <digitalWrite+0x12>
+ 1fe:	82 30       	cpi	r24, 0x02	; 2
+ 200:	e1 f1       	breq	.+120    	; 0x27a <digitalWrite+0x82>
+ 202:	83 30       	cpi	r24, 0x03	; 3
+ 204:	09 f4       	brne	.+2      	; 0x208 <digitalWrite+0x10>
+ 206:	55 c0       	rjmp	.+170    	; 0x2b2 <digitalWrite+0xba>
+ 208:	08 95       	ret
+	{
+		case PORT_A :
+		switch(value)
+ 20a:	44 23       	and	r20, r20
+ 20c:	19 f0       	breq	.+6      	; 0x214 <digitalWrite+0x1c>
+ 20e:	41 30       	cpi	r20, 0x01	; 1
+ 210:	69 f0       	breq	.+26     	; 0x22c <digitalWrite+0x34>
+ 212:	08 95       	ret
+		{
+			case LOW:
+			ReSet_Bit(PORTA,PIN);
+ 214:	81 e0       	ldi	r24, 0x01	; 1
+ 216:	90 e0       	ldi	r25, 0x00	; 0
+ 218:	02 c0       	rjmp	.+4      	; 0x21e <digitalWrite+0x26>
+ 21a:	88 0f       	add	r24, r24
+ 21c:	99 1f       	adc	r25, r25
+ 21e:	6a 95       	dec	r22
+ 220:	e2 f7       	brpl	.-8      	; 0x21a <digitalWrite+0x22>
+ 222:	80 95       	com	r24
+ 224:	9b b3       	in	r25, 0x1b	; 27
+ 226:	89 23       	and	r24, r25
+ 228:	8b bb       	out	0x1b, r24	; 27
+			break;
+ 22a:	08 95       	ret
+			
+			case HIGH:
+			Set_Bit(PORTA,PIN);
+ 22c:	81 e0       	ldi	r24, 0x01	; 1
+ 22e:	90 e0       	ldi	r25, 0x00	; 0
+ 230:	02 c0       	rjmp	.+4      	; 0x236 <digitalWrite+0x3e>
+ 232:	88 0f       	add	r24, r24
+ 234:	99 1f       	adc	r25, r25
+ 236:	6a 95       	dec	r22
+ 238:	e2 f7       	brpl	.-8      	; 0x232 <digitalWrite+0x3a>
+ 23a:	9b b3       	in	r25, 0x1b	; 27
+ 23c:	89 2b       	or	r24, r25
+ 23e:	8b bb       	out	0x1b, r24	; 27
+			break;
+ 240:	08 95       	ret
+			
+		}
+		break;
+		
+		case PORT_B :
+		switch(value)
+ 242:	44 23       	and	r20, r20
+ 244:	19 f0       	breq	.+6      	; 0x24c <digitalWrite+0x54>
+ 246:	41 30       	cpi	r20, 0x01	; 1
+ 248:	69 f0       	breq	.+26     	; 0x264 <digitalWrite+0x6c>
+ 24a:	08 95       	ret
+		{
+			case LOW:
+			ReSet_Bit(PORTB,PIN);
+ 24c:	81 e0       	ldi	r24, 0x01	; 1
+ 24e:	90 e0       	ldi	r25, 0x00	; 0
+ 250:	02 c0       	rjmp	.+4      	; 0x256 <digitalWrite+0x5e>
+ 252:	88 0f       	add	r24, r24
+ 254:	99 1f       	adc	r25, r25
+ 256:	6a 95       	dec	r22
+ 258:	e2 f7       	brpl	.-8      	; 0x252 <digitalWrite+0x5a>
+ 25a:	80 95       	com	r24
+ 25c:	98 b3       	in	r25, 0x18	; 24
+ 25e:	89 23       	and	r24, r25
+ 260:	88 bb       	out	0x18, r24	; 24
+			break;
+ 262:	08 95       	ret
+			
+			case HIGH:
+			Set_Bit(PORTB,PIN);
+ 264:	81 e0       	ldi	r24, 0x01	; 1
+ 266:	90 e0       	ldi	r25, 0x00	; 0
+ 268:	02 c0       	rjmp	.+4      	; 0x26e <digitalWrite+0x76>
+ 26a:	88 0f       	add	r24, r24
+ 26c:	99 1f       	adc	r25, r25
+ 26e:	6a 95       	dec	r22
+ 270:	e2 f7       	brpl	.-8      	; 0x26a <digitalWrite+0x72>
+ 272:	98 b3       	in	r25, 0x18	; 24
+ 274:	89 2b       	or	r24, r25
+ 276:	88 bb       	out	0x18, r24	; 24
+			break;
+ 278:	08 95       	ret
+		}
+		break;
+		
+		
+		case PORT_C :
+		switch(value)
+ 27a:	44 23       	and	r20, r20
+ 27c:	19 f0       	breq	.+6      	; 0x284 <digitalWrite+0x8c>
+ 27e:	41 30       	cpi	r20, 0x01	; 1
+ 280:	69 f0       	breq	.+26     	; 0x29c <digitalWrite+0xa4>
+ 282:	08 95       	ret
+		{
+			case LOW:
+			ReSet_Bit(PORTC,PIN);
+ 284:	81 e0       	ldi	r24, 0x01	; 1
+ 286:	90 e0       	ldi	r25, 0x00	; 0
+ 288:	02 c0       	rjmp	.+4      	; 0x28e <digitalWrite+0x96>
+ 28a:	88 0f       	add	r24, r24
+ 28c:	99 1f       	adc	r25, r25
+ 28e:	6a 95       	dec	r22
+ 290:	e2 f7       	brpl	.-8      	; 0x28a <digitalWrite+0x92>
+ 292:	80 95       	com	r24
+ 294:	95 b3       	in	r25, 0x15	; 21
+ 296:	89 23       	and	r24, r25
+ 298:	85 bb       	out	0x15, r24	; 21
+			break;
+ 29a:	08 95       	ret
+			
+			case HIGH:
+			Set_Bit(PORTC,PIN);
+ 29c:	81 e0       	ldi	r24, 0x01	; 1
+ 29e:	90 e0       	ldi	r25, 0x00	; 0
+ 2a0:	02 c0       	rjmp	.+4      	; 0x2a6 <digitalWrite+0xae>
+ 2a2:	88 0f       	add	r24, r24
+ 2a4:	99 1f       	adc	r25, r25
+ 2a6:	6a 95       	dec	r22
+ 2a8:	e2 f7       	brpl	.-8      	; 0x2a2 <digitalWrite+0xaa>
+ 2aa:	95 b3       	in	r25, 0x15	; 21
+ 2ac:	89 2b       	or	r24, r25
+ 2ae:	85 bb       	out	0x15, r24	; 21
+			break;
+ 2b0:	08 95       	ret
+			
+		}
+		break;
+		
+		case PORT_D :
+		switch(value)
+ 2b2:	44 23       	and	r20, r20
+ 2b4:	19 f0       	breq	.+6      	; 0x2bc <digitalWrite+0xc4>
+ 2b6:	41 30       	cpi	r20, 0x01	; 1
+ 2b8:	69 f0       	breq	.+26     	; 0x2d4 <digitalWrite+0xdc>
+ 2ba:	08 95       	ret
+		{
+			case LOW:
+			ReSet_Bit(PORTD,PIN);
+ 2bc:	81 e0       	ldi	r24, 0x01	; 1
+ 2be:	90 e0       	ldi	r25, 0x00	; 0
+ 2c0:	02 c0       	rjmp	.+4      	; 0x2c6 <digitalWrite+0xce>
+ 2c2:	88 0f       	add	r24, r24
+ 2c4:	99 1f       	adc	r25, r25
+ 2c6:	6a 95       	dec	r22
+ 2c8:	e2 f7       	brpl	.-8      	; 0x2c2 <digitalWrite+0xca>
+ 2ca:	80 95       	com	r24
+ 2cc:	92 b3       	in	r25, 0x12	; 18
+ 2ce:	89 23       	and	r24, r25
+ 2d0:	82 bb       	out	0x12, r24	; 18
+			break;
+ 2d2:	08 95       	ret
+			
+			case HIGH:
+			Set_Bit(PORTD,PIN);
+ 2d4:	81 e0       	ldi	r24, 0x01	; 1
+ 2d6:	90 e0       	ldi	r25, 0x00	; 0
+ 2d8:	02 c0       	rjmp	.+4      	; 0x2de <digitalWrite+0xe6>
+ 2da:	88 0f       	add	r24, r24
+ 2dc:	99 1f       	adc	r25, r25
+ 2de:	6a 95       	dec	r22
+ 2e0:	e2 f7       	brpl	.-8      	; 0x2da <digitalWrite+0xe2>
+ 2e2:	92 b3       	in	r25, 0x12	; 18
+ 2e4:	89 2b       	or	r24, r25
+ 2e6:	82 bb       	out	0x12, r24	; 18
+ 2e8:	08 95       	ret
+
+000002ea <delay>:
+ */ 
+
+#include "Lab2.h"
+
+void delay(uint32 time)
+{
+ 2ea:	cf 93       	push	r28
+ 2ec:	df 93       	push	r29
+ 2ee:	00 d0       	rcall	.+0      	; 0x2f0 <delay+0x6>
+ 2f0:	1f 92       	push	r1
+ 2f2:	cd b7       	in	r28, 0x3d	; 61
+ 2f4:	de b7       	in	r29, 0x3e	; 62
+ 2f6:	ac 01       	movw	r20, r24
+	for (volatile uint32 i=0 ; i<time ; i++)
+ 2f8:	1a 82       	std	Y+2, r1	; 0x02
+ 2fa:	19 82       	std	Y+1, r1	; 0x01
+ 2fc:	0e c0       	rjmp	.+28     	; 0x31a <delay+0x30>
+	for (volatile uint8 j=0 ; j<255 ; j++);
+ 2fe:	1b 82       	std	Y+3, r1	; 0x03
+ 300:	03 c0       	rjmp	.+6      	; 0x308 <delay+0x1e>
+ 302:	9b 81       	ldd	r25, Y+3	; 0x03
+ 304:	9f 5f       	subi	r25, 0xFF	; 255
+ 306:	9b 83       	std	Y+3, r25	; 0x03
+ 308:	9b 81       	ldd	r25, Y+3	; 0x03
+ 30a:	9f 3f       	cpi	r25, 0xFF	; 255
+ 30c:	d1 f7       	brne	.-12     	; 0x302 <delay+0x18>
+
+#include "Lab2.h"
+
+void delay(uint32 time)
+{
+	for (volatile uint32 i=0 ; i<time ; i++)
+ 30e:	29 81       	ldd	r18, Y+1	; 0x01
+ 310:	3a 81       	ldd	r19, Y+2	; 0x02
+ 312:	2f 5f       	subi	r18, 0xFF	; 255
+ 314:	3f 4f       	sbci	r19, 0xFF	; 255
+ 316:	3a 83       	std	Y+2, r19	; 0x02
+ 318:	29 83       	std	Y+1, r18	; 0x01
+ 31a:	29 81       	ldd	r18, Y+1	; 0x01
+ 31c:	3a 81       	ldd	r19, Y+2	; 0x02
+ 31e:	24 17       	cp	r18, r20
+ 320:	35 07       	cpc	r19, r21
+ 322:	68 f3       	brcs	.-38     	; 0x2fe <delay+0x14>
+	for (volatile uint8 j=0 ; j<255 ; j++);
+	
+	return;
+}
+ 324:	0f 90       	pop	r0
+ 326:	0f 90       	pop	r0
+ 328:	0f 90       	pop	r0
+ 32a:	df 91       	pop	r29
+ 32c:	cf 91       	pop	r28
+ 32e:	08 95       	ret
+
+00000330 <execute>:
+
+void execute(uint8 cmd, uint8 data)
+{
+ 330:	cf 93       	push	r28
+ 332:	df 93       	push	r29
+ 334:	00 d0       	rcall	.+0      	; 0x336 <execute+0x6>
+ 336:	cd b7       	in	r28, 0x3d	; 61
+ 338:	de b7       	in	r29, 0x3e	; 62
+ 33a:	89 83       	std	Y+1, r24	; 0x01
+ 33c:	6a 83       	std	Y+2, r22	; 0x02
+	digitalWrite(PORT_B, SS, LOW);
+ 33e:	40 e0       	ldi	r20, 0x00	; 0
+ 340:	64 e0       	ldi	r22, 0x04	; 4
+ 342:	81 e0       	ldi	r24, 0x01	; 1
+ 344:	0e 94 fc 00 	call	0x1f8	; 0x1f8 <digitalWrite>
+	
+	MCAL_SPI_Send_Data(&cmd, Polling_Mechanism_EN);
+ 348:	61 e0       	ldi	r22, 0x01	; 1
+ 34a:	ce 01       	movw	r24, r28
+ 34c:	01 96       	adiw	r24, 0x01	; 1
+ 34e:	0e 94 7a 02 	call	0x4f4	; 0x4f4 <MCAL_SPI_Send_Data>
+	MCAL_SPI_Send_Data(&data, Polling_Mechanism_EN);
+ 352:	61 e0       	ldi	r22, 0x01	; 1
+ 354:	ce 01       	movw	r24, r28
+ 356:	02 96       	adiw	r24, 0x02	; 2
+ 358:	0e 94 7a 02 	call	0x4f4	; 0x4f4 <MCAL_SPI_Send_Data>
+	
+	digitalWrite(PORT_B, SS, HIGH);
+ 35c:	41 e0       	ldi	r20, 0x01	; 1
+ 35e:	64 e0       	ldi	r22, 0x04	; 4
+ 360:	81 e0       	ldi	r24, 0x01	; 1
+ 362:	0e 94 fc 00 	call	0x1f8	; 0x1f8 <digitalWrite>
+}
+ 366:	0f 90       	pop	r0
+ 368:	0f 90       	pop	r0
+ 36a:	df 91       	pop	r29
+ 36c:	cf 91       	pop	r28
+ 36e:	08 95       	ret
+
+00000370 <SPI_lab2>:
+
+void SPI_lab2(void)
+{
+ 370:	cf 93       	push	r28
+ 372:	df 93       	push	r29
+ 374:	cd b7       	in	r28, 0x3d	; 61
+ 376:	de b7       	in	r29, 0x3e	; 62
+ 378:	29 97       	sbiw	r28, 0x09	; 9
+ 37a:	0f b6       	in	r0, 0x3f	; 63
+ 37c:	f8 94       	cli
+ 37e:	de bf       	out	0x3e, r29	; 62
+ 380:	0f be       	out	0x3f, r0	; 63
+ 382:	cd bf       	out	0x3d, r28	; 61
+	unsigned char counter = 0;
+	unsigned char index_display;
+	
+	/* Configuration of SPI1 */
+	SPI_Config_t SPI_Config;
+	SPI_Config.BaudRate_Prescaler = BAUDERATE_PRESCALER_16;
+ 384:	81 e0       	ldi	r24, 0x01	; 1
+ 386:	8e 83       	std	Y+6, r24	; 0x06
+	SPI_Config.CLK_Phase          = CLK_PHASE_SAMPLE_SETUP;
+ 388:	1d 82       	std	Y+5, r1	; 0x05
+	SPI_Config.CLK_Polarity       = CLK_POLARITY_RISING_FALLING;
+ 38a:	1c 82       	std	Y+4, r1	; 0x04
+	SPI_Config.Frame_Format       = FRAME_FORMAT_MSB_FIRST;
+ 38c:	1a 82       	std	Y+2, r1	; 0x02
+	SPI_Config.CLK_Speed          = CLK_SPEED_LOW;
+ 38e:	1b 82       	std	Y+3, r1	; 0x03
+	SPI_Config.IRQ_Enable         = IRQ_ENABLE_NONE;
+ 390:	1f 82       	std	Y+7, r1	; 0x07
+	SPI_Config.P_IRQ_CallBack     = NULL;
+ 392:	19 86       	std	Y+9, r1	; 0x09
+ 394:	18 86       	std	Y+8, r1	; 0x08
+	SPI_Config.SPI_Mode           = SPI_MODE_MASTER;
+ 396:	80 e1       	ldi	r24, 0x10	; 16
+ 398:	89 83       	std	Y+1, r24	; 0x01
+	MCAL_SPI_Init(&SPI_Config);
+ 39a:	ce 01       	movw	r24, r28
+ 39c:	01 96       	adiw	r24, 0x01	; 1
+ 39e:	0e 94 3e 02 	call	0x47c	; 0x47c <MCAL_SPI_Init>
+
+	execute(0x09, 0xFF);
+ 3a2:	6f ef       	ldi	r22, 0xFF	; 255
+ 3a4:	89 e0       	ldi	r24, 0x09	; 9
+ 3a6:	0e 94 98 01 	call	0x330	; 0x330 <execute>
+	execute(0x0A, 0xFF);
+ 3aa:	6f ef       	ldi	r22, 0xFF	; 255
+ 3ac:	8a e0       	ldi	r24, 0x0A	; 10
+ 3ae:	0e 94 98 01 	call	0x330	; 0x330 <execute>
+	execute(0x0B, 0xF7);
+ 3b2:	67 ef       	ldi	r22, 0xF7	; 247
+ 3b4:	8b e0       	ldi	r24, 0x0B	; 11
+ 3b6:	0e 94 98 01 	call	0x330	; 0x330 <execute>
+	execute(0x0C, 0x01);
+ 3ba:	61 e0       	ldi	r22, 0x01	; 1
+ 3bc:	8c e0       	ldi	r24, 0x0C	; 12
+ 3be:	0e 94 98 01 	call	0x330	; 0x330 <execute>
+}
+
+void SPI_lab2(void)
+{
+	/* Replace with your application code */
+	unsigned char counter = 0;
+ 3c2:	00 e0       	ldi	r16, 0x00	; 0
+	execute(0x0B, 0xF7);
+	execute(0x0C, 0x01);
+	
+	while (1)
+	{
+		for (index_display = 1; index_display < 9; index_display++)
+ 3c4:	11 e0       	ldi	r17, 0x01	; 1
+ 3c6:	09 c0       	rjmp	.+18     	; 0x3da <SPI_lab2+0x6a>
+		execute(index_display, counter++);
+ 3c8:	ff 24       	eor	r15, r15
+ 3ca:	f3 94       	inc	r15
+ 3cc:	f0 0e       	add	r15, r16
+ 3ce:	60 2f       	mov	r22, r16
+ 3d0:	81 2f       	mov	r24, r17
+ 3d2:	0e 94 98 01 	call	0x330	; 0x330 <execute>
+	execute(0x0B, 0xF7);
+	execute(0x0C, 0x01);
+	
+	while (1)
+	{
+		for (index_display = 1; index_display < 9; index_display++)
+ 3d6:	1f 5f       	subi	r17, 0xFF	; 255
+		execute(index_display, counter++);
+ 3d8:	0f 2d       	mov	r16, r15
+	execute(0x0B, 0xF7);
+	execute(0x0C, 0x01);
+	
+	while (1)
+	{
+		for (index_display = 1; index_display < 9; index_display++)
+ 3da:	19 30       	cpi	r17, 0x09	; 9
+ 3dc:	a8 f3       	brcs	.-22     	; 0x3c8 <SPI_lab2+0x58>
+		execute(index_display, counter++);
+		delay(1000);
+ 3de:	88 ee       	ldi	r24, 0xE8	; 232
+ 3e0:	93 e0       	ldi	r25, 0x03	; 3
+ 3e2:	0e 94 75 01 	call	0x2ea	; 0x2ea <delay>
+	}
+ 3e6:	ee cf       	rjmp	.-36     	; 0x3c4 <SPI_lab2+0x54>
+
+000003e8 <main>:
+
+#include "LAB2.h"
+
+int main(void)
+{
+	SPI_lab2();
+ 3e8:	0e 94 b8 01 	call	0x370	; 0x370 <SPI_lab2>
+}
+ 3ec:	80 e0       	ldi	r24, 0x00	; 0
+ 3ee:	90 e0       	ldi	r25, 0x00	; 0
+ 3f0:	08 95       	ret
+
+000003f2 <MCAL_SPI_GPIO_Set_Pins>:
+	{
+		while(!Read_Bit(SPSR, SPIF));
+	}
+	
+	return SPDR;
+}
+ 3f2:	e0 91 60 00 	lds	r30, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+ 3f6:	f0 91 61 00 	lds	r31, 0x0061	; 0x800061 <__DATA_REGION_ORIGIN__+0x1>
+ 3fa:	80 81       	ld	r24, Z
+ 3fc:	80 31       	cpi	r24, 0x10	; 16
+ 3fe:	21 f5       	brne	.+72     	; 0x448 <__EEPROM_REGION_LENGTH__+0x48>
+ 400:	41 e0       	ldi	r20, 0x01	; 1
+ 402:	67 e0       	ldi	r22, 0x07	; 7
+ 404:	81 e0       	ldi	r24, 0x01	; 1
+ 406:	0e 94 3e 00 	call	0x7c	; 0x7c <pinMode>
+ 40a:	40 e0       	ldi	r20, 0x00	; 0
+ 40c:	67 e0       	ldi	r22, 0x07	; 7
+ 40e:	81 e0       	ldi	r24, 0x01	; 1
+ 410:	0e 94 fc 00 	call	0x1f8	; 0x1f8 <digitalWrite>
+ 414:	43 e0       	ldi	r20, 0x03	; 3
+ 416:	66 e0       	ldi	r22, 0x06	; 6
+ 418:	81 e0       	ldi	r24, 0x01	; 1
+ 41a:	0e 94 3e 00 	call	0x7c	; 0x7c <pinMode>
+ 41e:	41 e0       	ldi	r20, 0x01	; 1
+ 420:	65 e0       	ldi	r22, 0x05	; 5
+ 422:	81 e0       	ldi	r24, 0x01	; 1
+ 424:	0e 94 3e 00 	call	0x7c	; 0x7c <pinMode>
+ 428:	40 e0       	ldi	r20, 0x00	; 0
+ 42a:	65 e0       	ldi	r22, 0x05	; 5
+ 42c:	81 e0       	ldi	r24, 0x01	; 1
+ 42e:	0e 94 fc 00 	call	0x1f8	; 0x1f8 <digitalWrite>
+ 432:	41 e0       	ldi	r20, 0x01	; 1
+ 434:	64 e0       	ldi	r22, 0x04	; 4
+ 436:	81 e0       	ldi	r24, 0x01	; 1
+ 438:	0e 94 3e 00 	call	0x7c	; 0x7c <pinMode>
+ 43c:	40 e0       	ldi	r20, 0x00	; 0
+ 43e:	64 e0       	ldi	r22, 0x04	; 4
+ 440:	81 e0       	ldi	r24, 0x01	; 1
+ 442:	0e 94 fc 00 	call	0x1f8	; 0x1f8 <digitalWrite>
+ 446:	08 95       	ret
+ 448:	43 e0       	ldi	r20, 0x03	; 3
+ 44a:	67 e0       	ldi	r22, 0x07	; 7
+ 44c:	81 e0       	ldi	r24, 0x01	; 1
+ 44e:	0e 94 3e 00 	call	0x7c	; 0x7c <pinMode>
+ 452:	41 e0       	ldi	r20, 0x01	; 1
+ 454:	66 e0       	ldi	r22, 0x06	; 6
+ 456:	81 e0       	ldi	r24, 0x01	; 1
+ 458:	0e 94 3e 00 	call	0x7c	; 0x7c <pinMode>
+ 45c:	40 e0       	ldi	r20, 0x00	; 0
+ 45e:	66 e0       	ldi	r22, 0x06	; 6
+ 460:	81 e0       	ldi	r24, 0x01	; 1
+ 462:	0e 94 fc 00 	call	0x1f8	; 0x1f8 <digitalWrite>
+ 466:	40 e0       	ldi	r20, 0x00	; 0
+ 468:	65 e0       	ldi	r22, 0x05	; 5
+ 46a:	81 e0       	ldi	r24, 0x01	; 1
+ 46c:	0e 94 3e 00 	call	0x7c	; 0x7c <pinMode>
+ 470:	40 e0       	ldi	r20, 0x00	; 0
+ 472:	64 e0       	ldi	r22, 0x04	; 4
+ 474:	81 e0       	ldi	r24, 0x01	; 1
+ 476:	0e 94 3e 00 	call	0x7c	; 0x7c <pinMode>
+ 47a:	08 95       	ret
+
+0000047c <MCAL_SPI_Init>:
+ 47c:	cf 93       	push	r28
+ 47e:	df 93       	push	r29
+ 480:	ec 01       	movw	r28, r24
+ 482:	90 93 61 00 	sts	0x0061, r25	; 0x800061 <__DATA_REGION_ORIGIN__+0x1>
+ 486:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <__DATA_REGION_ORIGIN__>
+ 48a:	0e 94 f9 01 	call	0x3f2	; 0x3f2 <MCAL_SPI_GPIO_Set_Pins>
+ 48e:	9d b1       	in	r25, 0x0d	; 13
+ 490:	88 81       	ld	r24, Y
+ 492:	89 2b       	or	r24, r25
+ 494:	8d b9       	out	0x0d, r24	; 13
+ 496:	9d b1       	in	r25, 0x0d	; 13
+ 498:	89 81       	ldd	r24, Y+1	; 0x01
+ 49a:	89 2b       	or	r24, r25
+ 49c:	8d b9       	out	0x0d, r24	; 13
+ 49e:	9d b1       	in	r25, 0x0d	; 13
+ 4a0:	8b 81       	ldd	r24, Y+3	; 0x03
+ 4a2:	89 2b       	or	r24, r25
+ 4a4:	8d b9       	out	0x0d, r24	; 13
+ 4a6:	9d b1       	in	r25, 0x0d	; 13
+ 4a8:	8c 81       	ldd	r24, Y+4	; 0x04
+ 4aa:	89 2b       	or	r24, r25
+ 4ac:	8d b9       	out	0x0d, r24	; 13
+ 4ae:	8a 81       	ldd	r24, Y+2	; 0x02
+ 4b0:	81 30       	cpi	r24, 0x01	; 1
+ 4b2:	41 f4       	brne	.+16     	; 0x4c4 <MCAL_SPI_Init+0x48>
+ 4b4:	9d b1       	in	r25, 0x0d	; 13
+ 4b6:	8d 81       	ldd	r24, Y+5	; 0x05
+ 4b8:	89 2b       	or	r24, r25
+ 4ba:	8d b9       	out	0x0d, r24	; 13
+ 4bc:	8e b1       	in	r24, 0x0e	; 14
+ 4be:	81 60       	ori	r24, 0x01	; 1
+ 4c0:	8e b9       	out	0x0e, r24	; 14
+ 4c2:	04 c0       	rjmp	.+8      	; 0x4cc <MCAL_SPI_Init+0x50>
+ 4c4:	9d b1       	in	r25, 0x0d	; 13
+ 4c6:	8d 81       	ldd	r24, Y+5	; 0x05
+ 4c8:	89 2b       	or	r24, r25
+ 4ca:	8d b9       	out	0x0d, r24	; 13
+ 4cc:	8e 81       	ldd	r24, Y+6	; 0x06
+ 4ce:	88 23       	and	r24, r24
+ 4d0:	41 f0       	breq	.+16     	; 0x4e2 <MCAL_SPI_Init+0x66>
+ 4d2:	8f b7       	in	r24, 0x3f	; 63
+ 4d4:	80 68       	ori	r24, 0x80	; 128
+ 4d6:	8f bf       	out	0x3f, r24	; 63
+ 4d8:	9d b1       	in	r25, 0x0d	; 13
+ 4da:	8e 81       	ldd	r24, Y+6	; 0x06
+ 4dc:	89 2b       	or	r24, r25
+ 4de:	8d b9       	out	0x0d, r24	; 13
+ 4e0:	03 c0       	rjmp	.+6      	; 0x4e8 <MCAL_SPI_Init+0x6c>
+ 4e2:	9d b1       	in	r25, 0x0d	; 13
+ 4e4:	89 2b       	or	r24, r25
+ 4e6:	8d b9       	out	0x0d, r24	; 13
+ 4e8:	8d b1       	in	r24, 0x0d	; 13
+ 4ea:	80 64       	ori	r24, 0x40	; 64
+ 4ec:	8d b9       	out	0x0d, r24	; 13
+ 4ee:	df 91       	pop	r29
+ 4f0:	cf 91       	pop	r28
+ 4f2:	08 95       	ret
+
+000004f4 <MCAL_SPI_Send_Data>:
+ 4f4:	fc 01       	movw	r30, r24
+ 4f6:	80 81       	ld	r24, Z
+ 4f8:	8f b9       	out	0x0f, r24	; 15
+ 4fa:	61 30       	cpi	r22, 0x01	; 1
+ 4fc:	11 f4       	brne	.+4      	; 0x502 <MCAL_SPI_Send_Data+0xe>
+ 4fe:	77 9b       	sbis	0x0e, 7	; 14
+ 500:	fe cf       	rjmp	.-4      	; 0x4fe <MCAL_SPI_Send_Data+0xa>
+ 502:	8f b1       	in	r24, 0x0f	; 15
+ 504:	08 95       	ret
+
+00000506 <__vector_12>:
+
+/*******************************************************************************
+                                  IRQ Handlers
+*******************************************************************************/
+ISR(SPI_STC_vect)
+{
+ 506:	1f 92       	push	r1
+ 508:	0f 92       	push	r0
+ 50a:	0f b6       	in	r0, 0x3f	; 63
+ 50c:	0f 92       	push	r0
+ 50e:	11 24       	eor	r1, r1
+ 510:	2f 93       	push	r18
+ 512:	3f 93       	push	r19
+ 514:	4f 93       	push	r20
+ 516:	5f 93       	push	r21
+ 518:	6f 93       	push	r22
+ 51a:	7f 93       	push	r23
+ 51c:	8f 93       	push	r24
+ 51e:	9f 93       	push	r25
+ 520:	af 93       	push	r26
+ 522:	bf 93       	push	r27
+ 524:	ef 93       	push	r30
+ 526:	ff 93       	push	r31
+	G_SPI_Config->P_IRQ_CallBack();
+ 528:	e0 91 60 00 	lds	r30, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+ 52c:	f0 91 61 00 	lds	r31, 0x0061	; 0x800061 <__DATA_REGION_ORIGIN__+0x1>
+ 530:	07 80       	ldd	r0, Z+7	; 0x07
+ 532:	f0 85       	ldd	r31, Z+8	; 0x08
+ 534:	e0 2d       	mov	r30, r0
+ 536:	09 95       	icall
+}
+ 538:	ff 91       	pop	r31
+ 53a:	ef 91       	pop	r30
+ 53c:	bf 91       	pop	r27
+ 53e:	af 91       	pop	r26
+ 540:	9f 91       	pop	r25
+ 542:	8f 91       	pop	r24
+ 544:	7f 91       	pop	r23
+ 546:	6f 91       	pop	r22
+ 548:	5f 91       	pop	r21
+ 54a:	4f 91       	pop	r20
+ 54c:	3f 91       	pop	r19
+ 54e:	2f 91       	pop	r18
+ 550:	0f 90       	pop	r0
+ 552:	0f be       	out	0x3f, r0	; 63
+ 554:	0f 90       	pop	r0
+ 556:	1f 90       	pop	r1
+ 558:	18 95       	reti
+
+0000055a <_exit>:
+ 55a:	f8 94       	cli
+
+0000055c <__stop_program>:
+ 55c:	ff cf       	rjmp	.-2      	; 0x55c <__stop_program>
