@@ -1,0 +1,2 @@
+USART_Debugging_Using_Interrupt.c:20:6:USART1_CallBack	8	static
+USART_Debugging_Using_Interrupt.c:26:6:USART_Debugging_Using_Interrupt	32	static
