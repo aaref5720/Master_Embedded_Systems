@@ -14,7 +14,7 @@ This repository contains my progress for the Diploma in Embedded Systems.
 
 ---
 
-### Second Term ![image](https://progress-bar.dev/33/?title=Done&color=ff00ff)
+### Second Term ![image](https://progress-bar.dev/50/?title=Done&color=ff00ff)
 
 - [Unit 6: MCU Fundamentals](Unit_6_MCU_Fundamentals) ![image](https://progress-bar.dev/100/)
 - [Unit 7: MCU Essential Peripherals](Unit_7_MCU_Essential_Peripherals) ![image](https://progress-bar.dev/100/)
