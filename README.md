@@ -37,7 +37,7 @@ This repository contains my progress for the Diploma in Embedded Systems.
 
 ---
 
-## Overall progress ![image](https://progress-bar.dev/1/?scale=3&title=Terms&suffix=&width=230&color=aa00ff)
+## Overall progress ![image](https://progress-bar.dev/2/?scale=3&title=Terms&suffix=&width=230&color=aa00ff)
 
 
 ---
