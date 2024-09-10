@@ -4,7 +4,7 @@ This repository contains my progress for the Diploma in Embedded Systems.
 
 ## Contents
 
-### First Term ![image](https://progress-bar.dev/100/?title=Done)
+### First Term ![image]((https://geps.dev/progress/100/?title=Done)
 
 - [Unit 01: Diploma Prerequisites](https://github.com/aaref5720/Master_Embedded_Systems) ![image](https://progress-bar.dev/100/?title=No_Assignments&color=bababa)
 - [Unit 02: C Programming](Unit_2_C_Programming) ![image](https://progress-bar.dev/100/)
