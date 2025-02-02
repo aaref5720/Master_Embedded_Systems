@@ -28,7 +28,7 @@ This repository contains my progress for the Diploma in Embedded Systems.
 ### Third Term ![image](https://progress-bar.dev/0/?title=Start_Soon&color=ff0000)
 
 - [Unit 12: Advanced Topics](https://github.com/aaref5720/Master_Embedded_Systems) ![image](https://geps.dev/progress/33/)
-- [Unit 13: Mastering CAN Protocol](https://github.com/aaref5720/Master_Embedded_Systems) ![image](https://geps.dev/progress/72/)
+- [Unit 13: Mastering CAN Protocol](https://github.com/aaref5720/Master_Embedded_Systems) ![image](https://geps.dev/progress/100/)
 - [Unit 14: Mastering ARM CortexM3/4](https://github.com/aaref5720/Master_Embedded_Systems) ![image](https://progress-bar.dev/0/)
 - [Unit 15: Create Your Own RTOS](https://github.com/aaref5720/Master_Embedded_Systems) ![image](https://progress-bar.dev/0/)
 - [Unit 16: Design Pattern](https://github.com/aaref5720/Master_Embedded_Systems) ![image](https://progress-bar.dev/0/)
