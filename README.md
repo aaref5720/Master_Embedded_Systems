@@ -29,18 +29,11 @@ This repository contains my progress for the Diploma in Embedded Systems.
 - [Unit 12: Advanced Topics](https://github.com/aaref5720/Master_Embedded_Systems) ![image](https://geps.dev/progress/33/)
 - [Unit 13: Mastering CAN Protocol](https://github.com/aaref5720/Master_Embedded_Systems) ![image](https://geps.dev/progress/100/)
 - [Unit 14: Mastering ARM CortexM3/4](https://github.com/aaref5720/Master_Embedded_Systems) ![image](https://geps.dev/progress/17/)
-- [Unit 15: Create Your Own RTOS](https://github.com/aaref5720/Master_Embedded_Systems) ![image](https://progress-bar.dev/0/)
-- [Unit 16: Design Pattern](https://github.com/aaref5720/Master_Embedded_Systems) ![image](https://progress-bar.dev/0/)
-- [Unit 17: Modern C++ & OOP](https://github.com/aaref5720/Master_Embedded_Systems) ![image](https://progress-bar.dev/0/)
-- [Unit 16: Introduction to Embedded Linux/AUTOSAR](https://github.com/aaref5720/Master_Embedded_Systems) ![image](https://progress-bar.dev/0/)
-
+- [Unit 15: Create Your Own RTOS](https://github.com/aaref5720/Master_Embedded_Systems) ![image](https://geps.dev/progress/0/)
+- [Unit 16: Design Pattern](https://github.com/aaref5720/Master_Embedded_Systems) ![image](https://geps.dev/progress/0/)
+- [Unit 17: Modern C++ & OOP](https://github.com/aaref5720/Master_Embedded_Systems) ![image](https://geps.dev/progress/0/)
+- [Unit 16: Introduction to Embedded Linux/AUTOSAR](https://github.com/aaref5720/Master_Embedded_Systems) ![image](https://geps.dev/progress/0/)
 ---
 
 ## Overall progress ![image](https://geps.dev/progress/66/?scale=3&title=Terms&suffix=&width=230&color=aa00ff)
 
-
----
-
-## My Progress Profile: [Click Here](https://www.learn-in-depth.com/online-diploma/abdo01445%40gmail.com)
-
----
