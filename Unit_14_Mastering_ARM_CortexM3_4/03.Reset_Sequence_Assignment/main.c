@@ -26,10 +26,6 @@
 #include "GPIO.h"
 #include "EXIT.h"
 
-uint8_t variableToReadCONTROLRegValue = 0xff;
-uint8_t variableToReadIPSRRegValue = 0xff;
-uint8_t IRQ_Flag = 0;
-
 static inline void ACCESS_LEVEL_SWITCH_TO_UNPRIVILEGED(void){
   __asm("nop\n\tnop\n\tnop\n\t");
   __asm("MRS r0,CONTROL \n\t"
